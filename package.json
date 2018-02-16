@@ -1,0 +1,9 @@
+{
+  "name": "treehouse-react-redux-training-app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/edgilmore/treehouse-react-redux-training-app.git",
+  "author": "Edward Gilmore <edgilmore@live.com>",
+  "license": "UNLICENSED",
+  "private": true
+}

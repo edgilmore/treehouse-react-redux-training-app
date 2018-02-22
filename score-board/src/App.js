@@ -23,4 +23,8 @@ App.propTypes = {
   title: PropTypes.string.isRequired,
 }
 
+App.defaultProps = {
+  title: 'Scoreboard'
+}
+
 export default App;

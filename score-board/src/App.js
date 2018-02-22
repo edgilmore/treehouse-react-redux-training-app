@@ -10,8 +10,9 @@ class App extends Component {
       <div className="App scoreboard">
         <Header title={this.props.title} />
         <div className="players">
-          <Player name="Player One" />
-          <Player name="Player Two" />
+          {this.props.players.map((player) => [
+            <Player name={player.name} score={player.score} key={player.id} />
+          ])}
         </div>
       </div>
     );
@@ -20,6 +21,8 @@ class App extends Component {
 
 App.propTypes = {
   title: PropTypes.string.isRequired,
+  players: PropTypes.arrayOf(PropTypes.shape({ name: PropTypes.string.isRequired, score: PropTypes.number.isRequired, id: PropTypes.number.isRequired }))
+    .isRequired,
 };
 
 App.defaultProps = {

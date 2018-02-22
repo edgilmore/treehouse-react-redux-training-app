@@ -7,7 +7,7 @@ const PLAYERS = [
   {
     id: 1,
     name: 'Player One',
-    score: 33,
+    score: 0,
   },
   {
     id: 2,

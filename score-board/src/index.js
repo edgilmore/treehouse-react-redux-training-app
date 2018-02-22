@@ -3,5 +3,18 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 
-ReactDOM.render(<App title="My Scoreboard" />, document.getElementById('root'));
+const PLAYERS = [
+  {
+    id: 1,
+    name: 'Player One',
+    score: 33,
+  },
+  {
+    id: 2,
+    name: 'Player Two',
+    score: 0,
+  },
+];
+
+ReactDOM.render(<App title="My Scoreboard" players={PLAYERS} />, document.getElementById('root'));
 

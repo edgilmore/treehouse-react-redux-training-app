@@ -7,6 +7,16 @@ class Player extends Component {
       score: 0,
     };
   }
+  incrementScore() {
+    this.setState({
+      score: this.score += 1,
+    });
+  }
+  decrementScore() {
+    this.setState({
+      score: this.score -= 1,
+    });
+  }
   render() {
     return (
       <div className="player">

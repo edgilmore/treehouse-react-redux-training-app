@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import Counter from './counter';
 
 class Player extends Component {
   constructor(props) {
@@ -8,26 +9,12 @@ class Player extends Component {
       score: 0,
     };
   }
-  incrementScore() {
-    this.setState({
-      score: this.score += 1,
-    });
-  }
-  decrementScore() {
-    this.setState({
-      score: this.score -= 1,
-    });
-  }
   render() {
     return (
       <div className="player">
         <div className="player-name">{this.props.name}</div>
         <div className="player-score">
-          <div className="counter">
-            <button className="counter-action decrement"> - </button>
-            <div className="counter-score">{this.state.score}</div>
-            <button className="counter-action increment"> + </button>
-          </div>
+          <Counter score={0} />
         </div>
       </div>
     );

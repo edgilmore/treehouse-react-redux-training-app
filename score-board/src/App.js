@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Player from './components/player';
 import './App.css';
 
@@ -16,6 +17,10 @@ class App extends Component {
       </div>
     );
   }
+}
+
+App.propTypes = {
+  title: PropTypes.string.isRequired,
 }
 
 export default App;

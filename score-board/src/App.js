@@ -3,13 +3,25 @@ import PropTypes from 'prop-types';
 import Player from './components/player';
 import './App.css';
 
+class Header extends Component {
+  render() {
+    return(
+      <div className="header">
+        <h1>{this.props.title}</h1>
+      </div>
+    )
+  }
+}
+
+Header.propTypes = {
+  title: PropTypes.string.isRequired,
+}
+
 class App extends Component {
   render() {
     return (
       <div className="App scoreboard">
-        <div className="header">
-          <h1>{this.props.title}</h1>
-        </div>
+        <Header title={this.props.title}/>
         <div className="players">
           <Player name="Player One" />
           <Player name="Player Two" />

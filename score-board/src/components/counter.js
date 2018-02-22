@@ -5,7 +5,7 @@ class Counter extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      score: 0,
+      score: this.props.score | 0,
     };
   }
   incrementScore() {

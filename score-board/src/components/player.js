@@ -14,7 +14,7 @@ class Player extends Component {
       <div className="player">
         <div className="player-name">{this.props.name}</div>
         <div className="player-score">
-          <Counter score={0} />
+          <Counter score={this.props.score} />
         </div>
       </div>
     );

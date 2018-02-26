@@ -2,6 +2,20 @@ import React, { Component } from 'react';
 import './css/App.css';
 
 class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      guests: [{
+        name: 'Player One',
+        isConfirmied: false
+      }],
+    }
+  }
+
+  getTotalInvited = () => this.state.guests.length;
+  // getAttendingGuests = () =>
+  // getUnconfirmedGuests = () =>
+
   render() {
     return (
       <div className="App">
@@ -45,7 +59,7 @@ class App extends Component {
             <li>
               <span>Iver</span>
               <label htmlFor="">
-                <input type="checkbox" checked="checked" /> Confirmed
+                <input type="checkbox" checked /> Confirmed
               </label>
               <button>edit</button>
               <button>remove</button>

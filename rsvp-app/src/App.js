@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import GuestList from './components/GuestList';
 import './css/App.css';
 
 class App extends Component {
@@ -52,35 +53,7 @@ class App extends Component {
               </tr>
             </tbody>
           </table>
-          <ul>
-            <li>
-              <span>Safia</span>
-            </li>
-            <li>
-              <span>Iver</span>
-              <label htmlFor="">
-                <input type="checkbox" checked /> Confirmed
-              </label>
-              <button>edit</button>
-              <button>remove</button>
-            </li>
-            <li>
-              <span>Corrina</span>
-              <label htmlFor="">
-                <input type="checkbox" checked /> Confirmed
-              </label>
-              <button>edit</button>
-              <button>remove</button>
-            </li>
-            <li>
-              <span>Joel</span>
-              <label htmlFor="">
-                <input type="checkbox" checked /> Confirmed
-              </label>
-              <button>edit</button>
-              <button>remove</button>
-            </li>
-          </ul>
+          <GuestList />
         </div>
       </div>
     );

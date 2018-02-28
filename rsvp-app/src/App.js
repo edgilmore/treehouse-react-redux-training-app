@@ -7,13 +7,19 @@ class App extends Component {
     super(props)
     this.state = {
       guests: [{
+        id: 1,
         name: 'Player One',
-        isConfirmied: false
+        isConfirmed: false
+      },
+      {
+        id: 2,
+        name: 'Player Two',
+        isConfirmed: true
       }],
     }
   }
 
-  getTotalInvited = () => this.state.guests.length;
+  // getTotalInvited = () => this.state.guests.length;
   // getAttendingGuests = () =>
   // getUnconfirmedGuests = () =>
 
@@ -53,7 +59,7 @@ class App extends Component {
               </tr>
             </tbody>
           </table>
-          <GuestList />
+          <GuestList guests={this.state.guests} />
         </div>
       </div>
     );

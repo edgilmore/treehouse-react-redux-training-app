@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class Guest extends React.Component {
+export default class Guest extends React.Component {
   render() {
     return (
       <li>
         <span>{this.props.name}</span>
-        <label htmlFor="">
+        <label>
           <input type="checkbox" checked={this.props.isConfirmed} /> Confirmed
         </label>
         <button>edit</button>
@@ -21,4 +21,16 @@ Guest.propTypes = {
   isConfirmed: PropTypes.bool.isRequired,
 };
 
-export default Guest;
+Guest.toggleConfirmationAt = indexToChange => {
+  this.setState({
+    guests: this.state.guests.map((guest, index) => {
+      if (index === indexToChange) {
+        return {
+          ...guest,
+          isConfirmed: !guest.isConfirmed,
+        };
+      }
+      return guest;
+    }),
+  });
+};

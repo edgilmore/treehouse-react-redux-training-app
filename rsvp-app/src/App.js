@@ -1,22 +1,24 @@
 import React, { Component } from 'react';
-import GuestList from './components/GuestList';
+import './components/GuestList';
 import './css/App.css';
 
 class App extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
-      guests: [{
-        id: 1,
-        name: 'Player One',
-        isConfirmed: false
-      },
-      {
-        id: 2,
-        name: 'Player Two',
-        isConfirmed: true
-      }],
-    }
+      guests: [
+        {
+          id: 1,
+          name: 'Player One',
+          isConfirmed: false,
+        },
+        {
+          id: 2,
+          name: 'Player Two',
+          isConfirmed: true,
+        },
+      ],
+    };
   }
 
   // getTotalInvited = () => this.state.guests.length;

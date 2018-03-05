@@ -1,21 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Guest from './Guest';
 
-class GuestList extends React.Component {
+export default class GuestList extends React.Component {
   render() {
     return (
       <ul>
         {this.props.guests.map((guest, index) => {
-          return (
-            <li key={index}>
-              <span>{guest.name}</span>
-              <label htmlFor="">
-                <input type="checkbox" checked={guest.isConfirmed} /> Confirmed
-              </label>
-              <button>edit</button>
-              <button>remove</button>
-            </li>
-          );
+          return <Guest key={index} name={guest.name} isConfirmed={guest.isConfirmed} />;
         })}
       </ul>
     );
@@ -25,5 +17,3 @@ class GuestList extends React.Component {
 GuestList.propTypes = {
   guests: PropTypes.array.isRequired,
 };
-
-export default GuestList;

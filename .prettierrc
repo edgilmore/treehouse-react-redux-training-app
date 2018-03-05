@@ -3,5 +3,7 @@
   "tabWidth": 2,
   "semi": true,
   "trailingComma": "all",
-  "printWidth": 120
+  "printWidth": 120, 
+  "parser": "babylon",
+  "bracketSpacing": true
 }

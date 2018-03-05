@@ -6,14 +6,16 @@ class GuestList extends React.Component {
     return (
       <ul>
         {this.props.guests.map((guest, index) => {
-          return <li key={index}>
-            <span>{guest.name}</span>
-            <label htmlFor="">
-              <input type="checkbox" checked={guest.isConfirmed} /> Confirmed
-            </label>
-            <button>edit</button>
-            <button>remove</button>
-          </li>;
+          return (
+            <li key={index}>
+              <span>{guest.name}</span>
+              <label htmlFor="">
+                <input type="checkbox" checked={guest.isConfirmed} /> Confirmed
+              </label>
+              <button>edit</button>
+              <button>remove</button>
+            </li>
+          );
         })}
       </ul>
     );

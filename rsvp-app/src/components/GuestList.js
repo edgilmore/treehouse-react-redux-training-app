@@ -7,7 +7,14 @@ export default class GuestList extends React.Component {
     return (
       <ul>
         {this.props.guests.map((guest, index) => {
-          return <Guest key={index} name={guest.name} isConfirmed={guest.isConfirmed} />;
+          return (
+            <Guest
+              key={index}
+              name={guest.name}
+              isConfirmed={guest.isConfirmed}
+              handleConfirmation={() => this.props.toggleConfirmationAt(index)}
+            />
+          );
         })}
       </ul>
     );
@@ -16,4 +23,5 @@ export default class GuestList extends React.Component {
 
 GuestList.propTypes = {
   guests: PropTypes.array.isRequired,
+  toggleConfirmationAt: PropTypes.func.isRequired,
 };

@@ -7,7 +7,8 @@ export default class Guest extends React.Component {
       <li>
         <span>{this.props.name}</span>
         <label>
-          <input type="checkbox" checked={this.props.isConfirmed} /> Confirmed
+          <input type="checkbox" checked={this.props.isConfirmed} onChange={this.props.handleConfirmation} />
+          Confirmed
         </label>
         <button>edit</button>
         <button>remove</button>
@@ -19,18 +20,5 @@ export default class Guest extends React.Component {
 Guest.propTypes = {
   name: PropTypes.string.isRequired,
   isConfirmed: PropTypes.bool.isRequired,
-};
-
-Guest.toggleConfirmationAt = indexToChange => {
-  this.setState({
-    guests: this.state.guests.map((guest, index) => {
-      if (index === indexToChange) {
-        return {
-          ...guest,
-          isConfirmed: !guest.isConfirmed,
-        };
-      }
-      return guest;
-    }),
-  });
+  handleConfirmation: PropTypes.func.isRequired,
 };

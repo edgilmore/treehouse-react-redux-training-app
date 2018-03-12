@@ -6,16 +6,14 @@ export default class GuestList extends React.Component {
   render() {
     return (
       <ul>
-        {this.props.guests.map((guest, index) => {
-          return (
-            <Guest
-              key={index}
-              name={guest.name}
-              isConfirmed={guest.isConfirmed}
-              handleConfirmation={() => this.props.toggleConfirmationAt(index)}
-            />
-          );
-        })}
+        {this.props.guests.map((guest, index) => (
+          <Guest
+            key={index}
+            name={guest.name}
+            isConfirmed={guest.isConfirmed}
+            handleConfirmation={() => this.props.toggleConfirmationAt(index)}
+          />
+        ))}
       </ul>
     );
   }

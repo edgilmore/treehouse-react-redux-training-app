@@ -11,6 +11,7 @@ export default class GuestList extends React.Component {
             key={index}
             name={guest.name}
             isConfirmed={guest.isConfirmed}
+            isEditing={guest.isEditing}
             handleConfirmation={() => this.props.toggleConfirmationAt(index)}
             handleToggleEditing={() => this.props.toggleEditingAt(index)}
           />

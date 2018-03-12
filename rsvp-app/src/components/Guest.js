@@ -10,7 +10,7 @@ export default class Guest extends React.Component {
           <input type="checkbox" checked={this.props.isConfirmed} onChange={this.props.handleConfirmation} />
           Confirmed
         </label>
-        <button>edit</button>
+        <button onClick={this.props.handleToggleEditing}>edit</button>
         <button>remove</button>
       </li>
     );
@@ -20,5 +20,7 @@ export default class Guest extends React.Component {
 Guest.propTypes = {
   name: PropTypes.string.isRequired,
   isConfirmed: PropTypes.bool.isRequired,
+  isEditing: PropTypes.bool.isRequired,
   handleConfirmation: PropTypes.func.isRequired,
+  handleToggleEditing: PropTypes.func.isRequired,
 };

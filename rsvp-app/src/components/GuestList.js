@@ -12,6 +12,7 @@ export default class GuestList extends React.Component {
             name={guest.name}
             isConfirmed={guest.isConfirmed}
             handleConfirmation={() => this.props.toggleConfirmationAt(index)}
+            handleToggleEditing={() => this.props.toggleEditingAt(index)}
           />
         ))}
       </ul>
@@ -22,4 +23,5 @@ export default class GuestList extends React.Component {
 GuestList.propTypes = {
   guests: PropTypes.array.isRequired,
   toggleConfirmationAt: PropTypes.func.isRequired,
+  toggleEditingAt: PropTypes.func.isRequired,
 };

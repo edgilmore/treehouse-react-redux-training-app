@@ -51,7 +51,7 @@ class App extends Component {
 
   toggleFilter = () => {
     this.setState({
-      isFilter: !this.state.isFiltered,
+      isFiltered: !this.state.isFiltered,
     });
   };
 

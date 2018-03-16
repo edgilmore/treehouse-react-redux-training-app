@@ -7,7 +7,7 @@ export default class GuestList extends React.Component {
     return (
       <ul>
         {this.props.guests
-          .filter(guest => !this.props.isFilter || guest.isConfirmed)
+          .filter(guest => !this.props.isFiltered || guest.isConfirmed)
           .map((guest, index) => (
             <Guest
               key={index}
@@ -29,5 +29,5 @@ GuestList.propTypes = {
   toggleConfirmationAt: PropTypes.func.isRequired,
   toggleEditingAt: PropTypes.func.isRequired,
   setNameAt: PropTypes.func.isRequired,
-  isFilter: PropTypes.bool.isRequired,
+  isFiltered: PropTypes.bool.isRequired,
 };

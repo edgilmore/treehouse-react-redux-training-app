@@ -6,17 +6,19 @@ export default class GuestList extends React.Component {
   render() {
     return (
       <ul>
-        {this.props.guests.map((guest, index) => (
-          <Guest
-            key={index}
-            name={guest.name}
-            isConfirmed={guest.isConfirmed}
-            isEditing={guest.isEditing}
-            handleConfirmation={() => this.props.toggleConfirmationAt(index)}
-            handleToggleEditing={() => this.props.toggleEditingAt(index)}
-            setName={text => this.props.setNameAt(text, index)}
-          />
-        ))}
+        {this.props.guests
+          .filter(guest => !this.props.isFilter || guest.isConfirmed)
+          .map((guest, index) => (
+            <Guest
+              key={index}
+              name={guest.name}
+              isConfirmed={guest.isConfirmed}
+              isEditing={guest.isEditing}
+              handleConfirmation={() => this.props.toggleConfirmationAt(index)}
+              handleToggleEditing={() => this.props.toggleEditingAt(index)}
+              setName={text => this.props.setNameAt(text, index)}
+            />
+          ))}
       </ul>
     );
   }
@@ -27,4 +29,5 @@ GuestList.propTypes = {
   toggleConfirmationAt: PropTypes.func.isRequired,
   toggleEditingAt: PropTypes.func.isRequired,
   setNameAt: PropTypes.func.isRequired,
+  isFilter: PropTypes.bool.isRequired,
 };

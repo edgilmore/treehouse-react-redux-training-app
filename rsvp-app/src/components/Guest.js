@@ -1,16 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import GuestName from './GuestName';
 
 export default class Guest extends React.Component {
   render() {
     return (
       <li>
-        <span>{this.props.name}</span>
+        <GuestName isEditing={this.props.isEditing} handleNameEdits={event => this.props.setName(event.target.value)}>
+          {this.props.name}
+        </GuestName>
         <label>
           <input type="checkbox" checked={this.props.isConfirmed} onChange={this.props.handleConfirmation} />
           Confirmed
         </label>
-        <button onClick={this.props.handleToggleEditing}>edit</button>
+        <button onClick={this.props.handleToggleEditing}>{this.props.isEditing ? 'save' : 'edit'}</button>
         <button>remove</button>
       </li>
     );

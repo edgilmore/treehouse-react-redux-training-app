@@ -14,6 +14,7 @@ export default class GuestList extends React.Component {
             isEditing={guest.isEditing}
             handleConfirmation={() => this.props.toggleConfirmationAt(index)}
             handleToggleEditing={() => this.props.toggleEditingAt(index)}
+            setName={text => this.props.setNameAt(text, index)}
           />
         ))}
       </ul>
@@ -25,4 +26,5 @@ GuestList.propTypes = {
   guests: PropTypes.array.isRequired,
   toggleConfirmationAt: PropTypes.func.isRequired,
   toggleEditingAt: PropTypes.func.isRequired,
+  setNameAt: PropTypes.func.isRequired,
 };

@@ -14,7 +14,7 @@ export default class Guest extends React.Component {
           Confirmed
         </label>
         <button onClick={this.props.handleToggleEditing}>{this.props.isEditing ? 'save' : 'edit'}</button>
-        <button>remove</button>
+        <button onClick={this.props.handleRemoveGuest}>remove</button>
       </li>
     );
   }
@@ -26,4 +26,5 @@ Guest.propTypes = {
   isEditing: PropTypes.bool.isRequired,
   handleConfirmation: PropTypes.func.isRequired,
   handleToggleEditing: PropTypes.func.isRequired,
+  handleRemoveGuest: PropTypes.func.isRequired,
 };

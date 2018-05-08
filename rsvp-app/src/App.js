@@ -74,6 +74,12 @@ class App extends Component {
     });
   };
 
+  remoteGuestAt = index => {
+    this.setState({
+      guests: [...this.state.guests.slice(0, index), ...this.state.guests.slice(index + 1)],
+    });
+  };
+
   setNameAt = (name, indexToChange) => {
     this.setState({
       guests: this.state.guests.map((guest, index) => {
@@ -133,6 +139,7 @@ class App extends Component {
             guests={this.state.guests}
             toggleConfirmationAt={this.toggleConfirmationAt}
             toggleEditingAt={this.toggleEditingAt}
+            remoteGuestAt={this.remoteGuestAt}
             setNameAt={this.setNameAt}
             isFiltered={this.state.isFiltered}
           />

@@ -7,7 +7,7 @@ export default class GuestList extends React.Component {
   render() {
     return (
       <ul>
-        <PendingGuest name={this.props.PendingGuest} />
+        <PendingGuest name={this.props.pendingGuest} />
         {this.props.guests
           .filter(guest => !this.props.isFiltered || guest.isConfirmed)
           .map((guest, index) => (
@@ -18,7 +18,7 @@ export default class GuestList extends React.Component {
               isEditing={guest.isEditing}
               handleConfirmation={() => this.props.toggleConfirmationAt(index)}
               handleToggleEditing={() => this.props.toggleEditingAt(index)}
-              handleRemoveGuest={() => this.props.remoteGuestAt(index)}
+              handleRemoveGuest={() => this.props.removeGuestAt(index)}
               setName={text => this.props.setNameAt(text, index)}
             />
           ))}
@@ -33,6 +33,6 @@ GuestList.propTypes = {
   toggleEditingAt: PropTypes.func.isRequired,
   setNameAt: PropTypes.func.isRequired,
   isFiltered: PropTypes.bool.isRequired,
-  remoteGuestAt: PropTypes.func.isRequired,
+  removeGuestAt: PropTypes.func.isRequired,
   pendingGuest: PropTypes.string.isRequired,
 };

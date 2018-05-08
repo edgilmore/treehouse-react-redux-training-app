@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import GuestList from './components/GuestList';
-import './css/App.css';
 import PendingGuest from './components/PendingGuest';
+import Counter from './components/Counter';
+import './css/App.css';
 
 class App extends Component {
   constructor(props) {
@@ -26,9 +27,9 @@ class App extends Component {
     };
   }
 
-  // getTotalInvited = () => this.state.guests.length;
-  // getAttendingGuests = () =>
-  // getUnconfirmedGuests = () =>
+  getTotalInvited = () => this.state.guests.length;
+  getAttendingGuests = () => this.state.guests.reduce((total, guest) => (guest.isConfirmed ? total + 1 : total), 0);
+
   toggleGuestPropertyAt = (property, indexToChange) => {
     this.setState({
       guests: this.state.guests.map((guest, index) => {
@@ -72,10 +73,11 @@ class App extends Component {
         },
         ...this.state.guests,
       ],
+      pendingGuest: '',
     });
   };
 
-  remoteGuestAt = index => {
+  removeGuestAt = index => {
     this.setState({
       guests: [...this.state.guests.slice(0, index), ...this.state.guests.slice(index + 1)],
     });
@@ -95,6 +97,9 @@ class App extends Component {
     });
   };
   render() {
+    const totalInvited = this.getTotalInvited();
+    const numberAttending = this.getAttendingGuests();
+    const numberUnconfirmed = totalInvited - numberAttending;
     return (
       <div className="App">
         <header>
@@ -120,27 +125,16 @@ class App extends Component {
               haven't responded
             </label>
           </div>
-          <table className="counter">
-            <tbody>
-              <tr>
-                <td>Attending:</td>
-                <td>0</td>
-              </tr>
-              <tr>
-                <td>Unconfirmed:</td>
-                <td>0</td>
-              </tr>
-              <tr>
-                <td>Total:</td>
-                <td>0</td>
-              </tr>
-            </tbody>
-          </table>
+          <Counter
+            numberAttending={numberAttending}
+            numberUnconfirmed={numberUnconfirmed}
+            totalInvited={totalInvited}
+          />
           <GuestList
             guests={this.state.guests}
             toggleConfirmationAt={this.toggleConfirmationAt}
             toggleEditingAt={this.toggleEditingAt}
-            remoteGuestAt={this.remoteGuestAt}
+            removeGuestAt={this.removeGuestAt}
             setNameAt={this.setNameAt}
             isFiltered={this.state.isFiltered}
             PendingGuest={this.state.pendingGuest}

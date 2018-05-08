@@ -1,11 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Guest from './Guest';
+import PendingGuest from './PendingGuest';
 
 export default class GuestList extends React.Component {
   render() {
     return (
       <ul>
+        <PendingGuest name={this.props.PendingGuest} />
         {this.props.guests
           .filter(guest => !this.props.isFiltered || guest.isConfirmed)
           .map((guest, index) => (
@@ -32,4 +34,5 @@ GuestList.propTypes = {
   setNameAt: PropTypes.func.isRequired,
   isFiltered: PropTypes.bool.isRequired,
   remoteGuestAt: PropTypes.func.isRequired,
+  pendingGuest: PropTypes.string.isRequired,
 };

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import GuestList from './components/GuestList';
 import './css/App.css';
+import PendingGuest from './components/PendingGuest';
 
 class App extends Component {
   constructor(props) {
@@ -142,6 +143,7 @@ class App extends Component {
             remoteGuestAt={this.remoteGuestAt}
             setNameAt={this.setNameAt}
             isFiltered={this.state.isFiltered}
+            PendingGuest={this.state.pendingGuest}
           />
         </div>
       </div>

@@ -21,6 +21,7 @@ class App extends Component {
         },
       ],
       isFiltered: false,
+      pendingGuest: '',
     };
   }
 
@@ -55,6 +56,24 @@ class App extends Component {
     });
   };
 
+  handleNameInput = event => {
+    this.setState({ pendingGuest: event.target.value });
+  };
+
+  newGuestSubmitHandler = event => {
+    event.preventDefault();
+    this.setState({
+      guests: [
+        {
+          name: this.state.pendingGuest,
+          isConfirmed: false,
+          isEditing: false,
+        },
+        ...this.state.guests,
+      ],
+    });
+  };
+
   setNameAt = (name, indexToChange) => {
     this.setState({
       guests: this.state.guests.map((guest, index) => {
@@ -74,8 +93,13 @@ class App extends Component {
         <header>
           <h1>RSVP</h1>
           <p>A Treehouse App</p>
-          <form action="">
-            <input type="text" value="" placeholder="Invite Someone" />
+          <form onSubmit={this.newGuestSubmitHandler}>
+            <input
+              type="text"
+              onChange={this.handleNameInput}
+              value={this.state.pendingGuest}
+              placeholder="Invite Someone"
+            />
             <button type="submit" name="submit" value="submit">
               Submit
             </button>

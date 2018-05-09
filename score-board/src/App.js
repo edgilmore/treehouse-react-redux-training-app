@@ -8,7 +8,7 @@ class App extends Component {
   render() {
     return (
       <div className="App scoreboard">
-        <Header title={this.props.title} />
+        <Header title={this.props.title} players={this.props.players} />
         <div className="players">
           {this.props.players.map(player => [<Player name={player.name} score={player.score} key={player.id} />])}
         </div>

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-class Counter extends Component {
+export default class Counter extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -15,15 +15,21 @@ class Counter extends Component {
   }
   decrementScore() {
     this.setState({
-      score: (this.state.score !== 0 ? this.state.score -= 1 : 0),
+      score: this.state.score !== 0 ? (this.state.score -= 1) : 0,
     });
   }
   render() {
     return (
       <div className="counter">
-        <button className="counter-action decrement" onClick={this.decrementScore.bind(this)} > - </button>
+        <button className="counter-action decrement" onClick={this.decrementScore.bind(this)}>
+          {' '}
+          -{' '}
+        </button>
         <div className="counter-score">{this.state.score}</div>
-        <button className="counter-action increment" onClick={this.incrementScore.bind(this)} > + </button>
+        <button className="counter-action increment" onClick={this.incrementScore.bind(this)}>
+          {' '}
+          +{' '}
+        </button>
       </div>
     );
   }
@@ -31,6 +37,4 @@ class Counter extends Component {
 
 Counter.propTypes = {
   score: PropTypes.number.isRequired,
-}
-
-export default Counter;
+};

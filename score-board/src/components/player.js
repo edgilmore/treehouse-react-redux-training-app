@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Counter from './counter';
 
-class Player extends Component {
+export default class Player extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -24,6 +24,4 @@ class Player extends Component {
 Player.propTypes = {
   name: PropTypes.string.isRequired,
   score: PropTypes.number.isRequired,
-}
-
-export default Player;
+};

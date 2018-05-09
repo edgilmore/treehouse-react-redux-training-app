@@ -31,7 +31,14 @@ class App extends Component {
       <div className="App scoreboard">
         <Header title={this.props.title} players={this.state.players} />
         <div className="players">
-          {this.state.players.map(player => [<Player name={player.name} score={player.score} key={player.id} />])}
+          {this.state.players.map(player => [
+            <Player
+              name={player.name}
+              score={player.score}
+              onRemove={() => this.onRemovePlayer(player.id)}
+              key={player.id}
+            />,
+          ])}
         </div>
         <AddPlayerForm onAdd={this.onAddPlayer} />
       </div>

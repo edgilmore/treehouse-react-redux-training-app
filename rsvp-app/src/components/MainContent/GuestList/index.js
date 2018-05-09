@@ -16,10 +16,10 @@ export default class GuestList extends React.Component {
               name={guest.name}
               isConfirmed={guest.isConfirmed}
               isEditing={guest.isEditing}
-              handleConfirmation={() => this.props.toggleConfirmationAt(index)}
-              handleToggleEditing={() => this.props.toggleEditingAt(index)}
-              handleRemoveGuest={() => this.props.removeGuestAt(index)}
-              setName={text => this.props.setNameAt(text, index)}
+              handleConfirmation={() => this.props.toggleConfirmationAt(guest.id)}
+              handleToggleEditing={() => this.props.toggleEditingAt(guest.id)}
+              handleRemoveGuest={() => this.props.removeGuestAt(guest.id)}
+              setName={text => this.props.setNameAt(text, guest.id)}
             />
           ))}
       </ul>

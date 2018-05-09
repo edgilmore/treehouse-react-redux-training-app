@@ -3,36 +3,30 @@ import Header from './components/Header';
 import MainContent from './components/MainContent';
 import './css/App.css';
 
+let lastGuestId = 0;
+
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      guests: [
-        {
-          id: 1,
-          name: 'Player One',
-          isConfirmed: false,
-          isEditing: false,
-        },
-        {
-          id: 2,
-          name: 'Player Two',
-          isConfirmed: true,
-          isEditing: true,
-        },
-      ],
+      guests: [],
       isFiltered: false,
       pendingGuest: '',
     };
   }
 
+  getGuestId = () => {
+    const id = lastGuestId;
+    lastGuestId += 1;
+    return id;
+  };
   getTotalInvited = () => this.state.guests.length;
   getAttendingGuests = () => this.state.guests.reduce((total, guest) => (guest.isConfirmed ? total + 1 : total), 0);
 
-  toggleGuestPropertyAt = (property, indexToChange) => {
+  toggleGuestPropertyAt = (property, id) => {
     this.setState({
-      guests: this.state.guests.map((guest, index) => {
-        if (index === indexToChange) {
+      guests: this.state.guests.map(guest => {
+        if (guest.id === id) {
           return {
             ...guest,
             [property]: !guest[property],
@@ -43,12 +37,12 @@ class App extends Component {
     });
   };
 
-  toggleConfirmationAt = index => {
-    this.toggleGuestPropertyAt('isConfirmed', index);
+  toggleConfirmationAt = id => {
+    this.toggleGuestPropertyAt('isConfirmed', id);
   };
 
-  toggleEditingAt = index => {
-    this.toggleGuestPropertyAt('isEditing', index);
+  toggleEditingAt = id => {
+    this.toggleGuestPropertyAt('isEditing', id);
   };
 
   toggleFilter = () => {
@@ -69,6 +63,7 @@ class App extends Component {
           name: this.state.pendingGuest,
           isConfirmed: false,
           isEditing: false,
+          id: this.getGuestId(),
         },
         ...this.state.guests,
       ],
@@ -76,16 +71,16 @@ class App extends Component {
     });
   };
 
-  removeGuestAt = index => {
+  removeGuestAt = id => {
     this.setState({
-      guests: [...this.state.guests.slice(0, index), ...this.state.guests.slice(index + 1)],
+      guests: this.state.guests.filter(guest => id !== guest.id),
     });
   };
 
-  setNameAt = (name, indexToChange) => {
+  setNameAt = (name, id) => {
     this.setState({
-      guests: this.state.guests.map((guest, index) => {
-        if (index === indexToChange) {
+      guests: this.state.guests.map(guest => {
+        if (guest.id === id) {
           return {
             ...guest,
             name,

@@ -12,9 +12,20 @@ class App extends Component {
     super(props);
     this.state = INITAL_STATE;
   }
-  onScoreChange = (index, delta) => {
-    this.state.players[index] += delta;
-    this.setState(this.state);
+  onScoreChange = (id, delta) => {
+    this.setState({
+      players: this.state.players.map(player => {
+        if (player.id === id) {
+          // eslint-disable-next-line
+          return {
+            ...player,
+            // eslint-disable-next-line
+            ['score']: (player['score'] += delta),
+          };
+        }
+        return { ...player };
+      }),
+    });
   };
   onAddPlayer = name => {
     this.setState({
@@ -37,6 +48,8 @@ class App extends Component {
               score={player.score}
               onRemove={() => this.onRemovePlayer(player.id)}
               key={player.id}
+              onScoreChange={this.onScoreChange}
+              playerId={player.id}
             />,
           ])}
         </div>

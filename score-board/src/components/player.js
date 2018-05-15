@@ -19,7 +19,7 @@ export default class Player extends Component {
           {this.props.name}
         </div>
         <div className="player-score">
-          <Counter score={this.props.score} />
+          <Counter score={this.props.score} onChange={this.props.onScoreChange} playerId={this.props.playerId} />
         </div>
       </div>
     );
@@ -30,4 +30,6 @@ Player.propTypes = {
   name: PropTypes.string.isRequired,
   score: PropTypes.number.isRequired,
   onRemove: PropTypes.func.isRequired,
+  onScoreChange: PropTypes.func.isRequired,
+  playerId: PropTypes.number.isRequired,
 };

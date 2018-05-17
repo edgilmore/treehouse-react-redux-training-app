@@ -7,7 +7,7 @@ import AddPlayerForm from '../components/AddPlayerForm';
 import INITAL_STATE from '../utils/constants';
 import '../App.css';
 
-class App extends Component {
+export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = INITAL_STATE;
@@ -66,5 +66,3 @@ App.propTypes = {
 App.defaultProps = {
   title: 'Scoreboard',
 };
-
-export default App;

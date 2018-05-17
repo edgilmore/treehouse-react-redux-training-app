@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Player from './components/player';
-import Header from './components/header';
-import AddPlayerForm from './components/AddPlayerForm';
+import Player from '../components/Player';
+import Header from '../components/Header';
+import AddPlayerForm from '../components/AddPlayerForm';
 
-import INITAL_STATE from './utils/constants';
-import './App.css';
+import INITAL_STATE from '../utils/constants';
+import '../App.css';
 
 class App extends Component {
   constructor(props) {

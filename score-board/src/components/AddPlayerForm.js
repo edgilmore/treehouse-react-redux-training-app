@@ -8,6 +8,9 @@ export default class AddPlayerForm extends Component {
       name: '',
     };
   }
+  static propTypes = {
+    onAdd: PropTypes.func.isRequired,
+  }
   onNameChange = event => {
     event.preventDefault();
     this.setState({
@@ -31,8 +34,4 @@ export default class AddPlayerForm extends Component {
       </div>
     );
   }
-}
-
-AddPlayerForm.propTypes = {
-  onAdd: PropTypes.func.isRequired,
 }

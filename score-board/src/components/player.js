@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Counter from './counter';
+import Counter from './Counter';
 
 export default class Player extends Component {
   constructor(props) {
@@ -9,6 +9,13 @@ export default class Player extends Component {
       score: 0,
     };
   }
+  static propTypes = {
+    name: PropTypes.string.isRequired,
+    score: PropTypes.number.isRequired,
+    onRemove: PropTypes.func.isRequired,
+    onScoreChange: PropTypes.func.isRequired,
+    playerId: PropTypes.number.isRequired,
+  };
   render() {
     return (
       <div className="player">
@@ -25,11 +32,3 @@ export default class Player extends Component {
     );
   }
 }
-
-Player.propTypes = {
-  name: PropTypes.string.isRequired,
-  score: PropTypes.number.isRequired,
-  onRemove: PropTypes.func.isRequired,
-  onScoreChange: PropTypes.func.isRequired,
-  playerId: PropTypes.number.isRequired,
-};

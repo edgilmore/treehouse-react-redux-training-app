@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Stats from './stats';
-import Stopwatch from './stopwatch';
+import Stats from './Stats';
+import Stopwatch from './Stopwatch';
 
 export default class Header extends Component {
+  static propTypes = {
+    title: PropTypes.string.isRequired,
+  };
   render() {
     return (
       <div className="header">
@@ -14,7 +17,3 @@ export default class Header extends Component {
     );
   }
 }
-
-Header.propTypes = {
-  title: PropTypes.string.isRequired,
-};

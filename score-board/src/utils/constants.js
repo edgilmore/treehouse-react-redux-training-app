@@ -1,4 +1,4 @@
-const INTIAL_STATE = {
+const INITAL_STATE = {
   players: [
     {
       id: 1,
@@ -13,4 +13,4 @@ const INTIAL_STATE = {
   ],
 };
 
-export default INTIAL_STATE;
+export default INITAL_STATE;

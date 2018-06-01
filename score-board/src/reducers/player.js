@@ -1,5 +1,5 @@
 import * as PlayerActionTypes from '../action-types/player';
-import { INITAL_STATE } from '../utils/constants';
+import INITAL_STATE from '../utils/constants';
 
 const initialState = [...INITAL_STATE];
 

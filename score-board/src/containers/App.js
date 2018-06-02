@@ -7,38 +7,11 @@ import Player from '../components/Player';
 import Header from '../components/Header';
 import AddPlayerForm from '../components/AddPlayerForm';
 
-import INITAL_STATE from '../utils/constants';
 import '../App.css';
 
 class App extends Component {
   static propTypes = {
     players: PropTypes.array.isRequired,
-  };
-
-  onScoreChange = (id, delta) => {
-    this.setState({
-      players: this.state.players.map(player => {
-        if (player.id === id) {
-          // eslint-disable-next-line
-          return {
-            ...player,
-            // eslint-disable-next-line
-            ['score']: (player['score'] += delta),
-          };
-        }
-        return { ...player };
-      }),
-    });
-  };
-  onAddPlayer = name => {
-    this.setState({
-      players: [{ name, score: 0 }, ...this.state.players],
-    });
-  };
-  onRemovePlayer = id => {
-    this.setState({
-      players: this.state.players.filter(player => player.id !== id),
-    });
   };
   render() {
     const { dispatch, players } = this.props;
@@ -53,13 +26,14 @@ class App extends Component {
         score={player.score}
         updatePlayerScore={updatePlayerScore}
         removePlayer={removePlayer}
+        playerId={player.id}
       />,
     ]);
     return (
       <div className="App scoreboard">
         <Header title={this.props.title} players={players} />
         <div className="players">{playerComponents}</div>
-        <AddPlayerForm onAdd={addPlayer} />
+        <AddPlayerForm addPlayer={addPlayer} />
       </div>
     );
   }

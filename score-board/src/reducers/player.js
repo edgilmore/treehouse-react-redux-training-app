@@ -11,10 +11,11 @@ export default function Player(state = initialState, action) {
         {
           name: action.name,
           score: 0,
+          id: state.length + 1,
         },
       ];
     case PlayerActionTypes.REMOVE_PLAYER:
-      return [...state.slice(0, action.index), ...state.slice(action.index + 1)];
+      return state.filter(player => player.id !== action.playerId);
     case PlayerActionTypes.UPDATE_PLAYER_SCORE:
       return state.map(player => {
         if (player.id === action.id)

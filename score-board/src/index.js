@@ -7,7 +7,7 @@ import App from './containers/App';
 
 import './index.css';
 
-const store = createStore(PlayerReducer);
+const store = createStore(PlayerReducer, window.devToolsExtension && window.devToolsExtension());
 
 ReactDOM.render(
   <Provider store={store}>

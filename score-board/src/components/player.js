@@ -18,7 +18,6 @@ export default class Player extends Component {
     playerId: PropTypes.number.isRequired,
   };
   render() {
-    console.log(this.props)
     return (
       <div className="player">
         <div className="player-name">

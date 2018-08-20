@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import {DateTime} from 'luxon';
 export default class PlayerDetail extends Component {
   render() {
-    console.log(this.props);
     if(this.props.selectedPlayer.name){
       return (
         <div className="player-detail">

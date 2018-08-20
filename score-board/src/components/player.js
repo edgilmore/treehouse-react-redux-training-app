@@ -14,16 +14,18 @@ export default class Player extends Component {
     score: PropTypes.number.isRequired,
     removePlayer: PropTypes.func.isRequired,
     updatePlayerScore: PropTypes.func.isRequired,
+    selectPlayer: PropTypes.func.isRequired,
     playerId: PropTypes.number.isRequired,
   };
   render() {
+    console.log(this.props)
     return (
       <div className="player">
         <div className="player-name">
           <a className="remove-player" onClick={() => this.props.removePlayer(this.props.playerId)}>
             ✖
           </a>
-          {this.props.name}
+          <a className="player-name-text" onClick={() => this.props.selectPlayer(this.props.index)}>{this.props.name}</a>
         </div>
         <div className="player-score">
           <Counter

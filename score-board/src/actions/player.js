@@ -7,10 +7,10 @@ export const addPlayer = name => {
   };
 };
 
-export const removePlayer = playerId => {
+export const removePlayer = id => {
   return {
     type: PlayerActionTypes.REMOVE_PLAYER,
-    playerId,
+    id,
   };
 };
 
@@ -19,5 +19,12 @@ export const updatePlayerScore = (id, score) => {
     type: PlayerActionTypes.UPDATE_PLAYER_SCORE,
     id,
     score,
+  };
+};
+
+export const selectPlayer = index => {
+  return {
+    type: PlayerActionTypes.SELECT_PLAYER,
+    index,
   };
 };
